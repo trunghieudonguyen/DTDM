@@ -1,0 +1,23 @@
+\clearpage
+\Urlmuskip=0mu plus 2mu\relax
+\def\UrlBreaks{\do\/\do-\do\.\do\_\do\?\do\&\do\#}
+
+% --- loại bỏ mọi tiêu đề mặc định của thư mục tài liệu ---
+\makeatletter
+\renewcommand{\refname}{}   % cho article
+% xóa câu lệnh tạo \section* hoặc \chapter* trong môi trường thebibliography
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\chapter*{\bibname}}{}{}{}
+\makeatletter
+
+% ====== tiêu đề tài liệu tham khảo (tự viết) ======
+% ====== tiêu đề tài liệu tham khảo ======
+\plainsection{TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{section}{TÀI LIỆU THAM KHẢO}
+
+% Làm lỏng dãn cách để tránh tràn lề với chuỗi dài (URL)
+\begingroup
+\sloppy
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\endgroup

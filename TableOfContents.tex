@@ -1,0 +1,24 @@
+\plainsection{MỤC LỤC}
+\renewcommand{\contentsname}{}  % Xoá tiêu đề mặc định
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+
+% -- In đậm cho section (CHƯƠNG) và subsection --
+\renewcommand{\cftsecfont}{\bfseries}        % tên section in đậm
+\renewcommand{\cftsecpagefont}{\bfseries}    % số trang section in đậm
+\renewcommand{\cftsubsecfont}{\bfseries}     
+\renewcommand{\cftsubsecpagefont}{\bfseries} 
+\renewcommand{\cftsubsubsecfont}{\normalfont}     
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
+
+% --- Giãn dòng và khoảng cách ---
+\renewcommand{\baselinestretch}{1.15}\selectfont  % line spacing 1.15
+
+% khoảng cách trên dưới mỗi mục (section, subsection...)
+\setlength{\cftbeforesecskip}{6pt}
+\setlength{\cftbeforesubsecskip}{6pt}
+\setlength{\cftbeforesubsubsecskip}{6pt}
+
+\thispagestyle{empty}
+\tableofcontents

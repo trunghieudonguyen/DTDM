@@ -1,0 +1,250 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[fontsizes=14pt]{scrextend}
+\usepackage[paperheight=29.7cm,paperwidth=21cm,right=2cm,left=3cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{mathptmx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usetikzlibrary{calc}
+\usepackage{fontawesome}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{tocloft}
+\usepackage{enumitem}
+%\usepackage{tocbibind}
+\usepackage[hidelinks]{hyperref}
+\usepackage{etoolbox}
+\counterwithin{figure}{section} % đánh số hình theo section
+\renewcommand{\figurename}{Hình} % đổi Figure -> Hình
+\usepackage{cite}              % trích dẫn IEEE
+\usepackage{hyperref}  % cải thiện hiển thị URL
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyphenat}
+
+
+% --- xử lý URL dài: cho phép xuống dòng trong link ---
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}           % cho phép ngắt ở hầu hết vị trí trong URL
+
+\usepackage{caption}
+
+\hyphenation{} % bỏ tách chữ
+
+
+% Tạo font mới tên là my14pt nghiêng
+\DeclareCaptionFont{my14pt}{\fontsize{14pt}{16pt}\selectfont\itshape} % Áp dụng cho caption của figure 
+\captionsetup[figure]{ 
+    labelformat=simple, 
+    labelsep=colon, 
+    justification=centering,  
+    font=my14pt 
+}
+
+
+% Cấm orphan / widow để dùng cho toàn tài liệu (không trong \setlist):
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% --- Định dạng section (CHƯƠNG) ---
+\let\oldsection\section
+\renewcommand{\section}[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{CHƯƠNG \thesection: #1}%
+  \par\vspace{3pt}% khoảng cách phía trên
+  {\setstretch{1.5}%
+    \noindent\centering\bfseries\fontsize{14pt}{18pt}\selectfont
+    CHƯƠNG \thesection: #1\par}%
+  \vspace{3pt}% khoảng cách phía dưới
+}
+
+% --- Định dạng section* (không số) ---
+\newcommand{\sectionstar}[1]{%
+  \par\vspace{3pt}% khoảng cách phía trên
+  {\setstretch{1.5}%
+    \noindent\centering\bfseries\fontsize{14pt}{18pt}\selectfont
+    #1\par}%
+  \vspace{3pt}% khoảng cách phía dưới
+  \addcontentsline{toc}{section}{#1}%
+}
+
+
+%\titlespacing*{\section}{0pt}{3pt}{3pt}
+
+% --- Định dạng subsection ---
+\titleformat{\subsection}[block]
+  {\parindent=1cm\noindent\hspace*{1cm}\bfseries\fontsize{14pt}{18pt}}
+  {\thesubsection.}
+  {1em}
+  {}
+
+\titleformat{name=\subsection,numberless}[block]
+  {\centering\bfseries\fontsize{14pt}{18pt}}
+  {}
+  {0em}
+  {}
+
+\titlespacing*{\subsection}{0pt}{3pt}{3pt}
+
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\large,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    numbers=none,       % tắt số dòng
+    stepnumber=1,
+    numbersep=5pt,
+    xleftmargin=0pt,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false
+}
+
+
+\newlist{myitem}{itemize}{1}
+\setlist[myitem,1]{%
+  label=--,           % dấu gạch ngang
+  labelindent=1cm,    % dòng đầu tiên thụt 1cm
+  labelsep=0.5cm,     % khoảng cách từ dấu - đến chữ đầu
+  leftmargin=0pt,      % lề tổng = 0, dòng sau căn sát lề văn bản
+  align=left,          % dòng tiếp theo căn trái
+  labelwidth=*,       
+  itemsep=6pt,        % khoảng cách giữa các item
+  topsep=6pt           % khoảng cách giữa danh sách và đoạn ngoài
+}
+
+\newlist{mysubitem}{itemize}{1}
+\setlist[mysubitem,1]{%
+  label=\textbf{+},      % dấu +
+  labelindent=1.5cm,     % thụt lề nhãn
+  labelsep=0.5cm,        % khoảng cách nhãn - nội dung
+  leftmargin=0cm,        % tổng thụt lề (labelindent + labelwidth + labelsep)
+  align=left,          % dòng tiếp theo căn trái
+  labelwidth=*,       
+  align=parleft,         % căn lề cho dòng thứ 2
+  itemsep=6pt,           % khoảng cách giữa các item
+  topsep=6pt             % khoảng cách trước/sau list
+}
+
+\titleformat{\subsubsection}[block]
+  {\parindent=1cm\noindent\hspace*{1cm}\bfseries\itshape\fontsize{13pt}{17pt}}
+  {\thesubsubsection.}
+  {1em}
+  {}
+
+\titlespacing*{\subsubsection}{0pt}{3pt}{3pt}
+
+% --- Định dạng mục lục ---
+
+
+% --- Định dạng nội dung chính ---
+\newenvironment{maincontent}{
+  \onehalfspacing
+  \setlength{\parindent}{1cm}
+  \setlength{\parskip}{6pt}
+  \fontsize{14pt}{21pt}\selectfont
+  
+  % Ngăn orphan / widow
+  \clubpenalty=10000          % cấm dòng đầu bị rớt xuống cuối trang
+  \widowpenalty=10000         % cấm dòng cuối bị đẩy sang trang mới
+  \displaywidowpenalty=10000  % cấm widow trước công thức
+}{}
+
+
+% --- Môi trường cho trang tiêu đề ---
+\newenvironment{titlepaper}{\thispagestyle{empty}}{}
+
+\newcommand{\plainsection}[1]{%
+  \par\vspace{6pt}% khoảng cách phía trên
+  \phantomsection
+  {\setstretch{1.5}%
+  \noindent\centering\bfseries\fontsize{14pt}{18pt}\selectfont #1\par}%
+  \vspace{6pt}% khoảng cách phía dưới
+}
+
+
+
+\begin{document}
+
+% Tạo lệnh \subsubsubsection
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
+
+\newcommand{\subsubsubsection}[1]{%
+  \refstepcounter{subsubsubsection}%
+  \par\vspace{6pt}%
+  {\parindent=1cm
+   \noindent\hspace*{1cm}\itshape\fontsize{14pt}{18pt}\selectfont
+   \thesubsubsubsection.\quad #1\par}%
+  \vspace{3pt}%
+}
+
+\thispagestyle{empty}
+% Trang bìa
+\input{Cover1}
+\newpage
+
+%\input{Cover2}
+%\thispagestyle{empty}
+%\newpage
+
+\thispagestyle{empty}
+\input{sophach}
+\newpage
+
+% Nội dung chính
+\begin{maincontent}
+
+\clearpage
+\begingroup
+  \makeatletter
+  \let\ps@plain\ps@empty   % ép plain = empty
+  \pagestyle{empty}
+  \input{TableOfContents}
+  \clearpage
+  \input{Danh_muc_hinh_anh}
+  \clearpage
+\makeatother
+\endgroup
+
+% quay lại đánh số bình thường cho nội dung chính
+\pagestyle{plain}
+
+\clearpage
+\pagenumbering{arabic} % Bắt đầu đánh số 1, 2,...
+
+% Định dạng số trang
+\renewcommand{\thepage}{\fontsize{14pt}{16pt}\selectfont\arabic{page}}
+
+\setcounter{page}{1}
+\input{Introduction}
+\newpage
+
+\input{Tong_quan_DTDM/Noidung}
+\newpage
+
+\input{Oracle_cloud/Noidung}
+\newpage
+
+\input{Demo/Noidung}
+\newpage
+
+\input{Conclusion}
+\newpage
+
+\input{Tai_lieu_tham_khao}
+\newpage
+
+\end{maincontent}
+
+\end{document}

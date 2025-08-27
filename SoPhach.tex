@@ -1,0 +1,65 @@
+\plainsection{SỐ PHÁCH VÀ KẾT QUẢ CHẤM}
+%\addcontentsline{toc}{section}{SỐ PHÁCH VÀ KẾT QUẢ CHẤM}
+
+\vspace{0.3cm} % Thêm khoảng cách dưới tiêu đề
+
+% Bảng "Số phách" căn phải
+\begin{flushright} % Căn bảng về bên phải trang
+\renewcommand{\arraystretch}{1.5} % Tăng khoảng cách giữa các dòng trong bảng
+\fontsize{14pt}{18pt}\selectfont % Thiết lập cỡ chữ 14pt, khoảng cách dòng 18pt
+\begin{tabular}{|p{5cm}|} % Bảng gồm 1 cột, độ rộng 5cm, có viền
+  \hline
+  \centering \textbf{Số phách} \tabularnewline % Ô đầu tiên: in đậm và căn giữa chữ "Số phách"
+  \hline
+  \rule{0pt}{2cm} \tabularnewline % Ô trống chiều cao 2cm (chứa số phách viết tay)
+  \hline
+\end{tabular}
+\end{flushright}
+
+\vspace{0.5cm} % Khoảng cách giữa 2 bảng
+
+% Bảng "Kết quả chấm"
+\renewcommand{\arraystretch}{1.5} % Tăng khoảng cách dòng trong bảng
+\fontsize{14pt}{18pt}\selectfont % Thiết lập cỡ chữ 14pt, khoảng cách dòng 18pt
+\begin{flushright} % Căn bảng về bên phải
+\begin{tabular}{|>{\centering\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{4cm}|>{\centering\arraybackslash}m{4cm}|}
+% Bảng có 3 cột: 
+% Cột 1 rộng 6.5cm: chứa thông tin cán bộ chấm thi hoặc điểm kết luận
+% Cột 2 và 3 rộng 4cm: chứa điểm bằng số và chữ, tất cả đều căn giữa
+\hline
+\rule{0pt}{1.2cm} & \textbf{Điểm bằng số} & \textbf{Điểm bằng chữ} \tabularnewline % Hàng tiêu đề bảng
+\hline
+
+% Cán bộ chấm thi thứ nhất
+
+\begin{minipage}[t][4.5cm][t]{\linewidth} % Ô đầu tiên dùng minipage: cao 4.5cm, canh đầu ô theo chiều dọc
+    \centering % Căn giữa theo chiều ngang
+    \textbf{Cán bộ chấm thi thứ nhất} \\[6pt] % Tiêu đề in đậm, xuống dòng cách 6pt
+    (Ký, ghi rõ họ tên) % Ghi chú dưới
+\end{minipage}
+
+& & \tabularnewline % Hai ô còn lại để trống
+\hline
+
+% Cán bộ chấm thi thứ hai
+
+\begin{minipage}[t][4.5cm][t]{\linewidth} % Thiết lập tương tự như cán bộ thứ nhất
+    \centering
+    \textbf{Cán bộ chấm thi thứ hai} \\[6pt]
+    (Ký, ghi rõ họ tên)
+\end{minipage}
+
+& & \tabularnewline
+\hline
+
+% Điểm kết luận
+
+\begin{minipage}[t][2cm][c]{\linewidth} % Dòng này dùng minipage cao 2.5cm, canh giữa theo chiều dọc
+    \centering
+    \textbf{Điểm kết luận} % In đậm, căn giữa
+\end{minipage}
+
+& & \tabularnewline
+\hline
+\end{tabular}
+\end{flushright}

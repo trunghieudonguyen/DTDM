@@ -1,0 +1,53 @@
+\begin{titlepaper}
+\begin{tikzpicture} [overlay,remember picture]
+\draw [line width=3pt]
+    ($ (current page.north west) + (3.0cm,-2.0cm) $)
+    rectangle
+    ($ (current page.south east) + (-2.0cm,2.5cm) $);
+\draw [line width=0.5pt]
+    ($ (current page.north west) + (3.1cm,-2.1cm) $)
+    rectangle
+    ($ (current page.south east) + (-2.1cm,2.6cm) $);
+\end{tikzpicture}
+
+\begin{center}
+\vspace{-6pt} 
+\textbf{\fontsize{14pt}{18pt}\selectfont HỌC VIỆN AN NINH NHÂN DÂN}\\
+\textbf{\fontsize{14pt}{18pt}\selectfont KHOA ANM VÀ PCTPSDCNC}\\
+\textbf{\fontsize{14pt}{18pt}\selectfont -------------}\\[1.5cm]
+
+\includegraphics[width = 0.24\textwidth]{img/Logo_hoc_vien_ANND.png}\\[1.0cm]
+
+\textbf{\fontsize{20pt}{18pt}\selectfont BÀI TẬP LỚN}\\[1.0cm]
+\textbf{\fontsize{25pt}{18pt}\selectfont THÂM NHẬP GIẢ ĐỊNH}\\[1.5cm]
+
+\renewcommand{\baselinestretch}{1.75}\normalsize
+\begin{spacing}{2.0}
+\begin{minipage}{\dimexpr\paperwidth - 6cm} % 3cm + 1cm bên trái và 2cm + 1cm bên phải
+\centering
+\textbf{\fontsize{14pt}{18pt}\selectfont TÊN ĐỀ TÀI: THỰC NGHIỆM MỘT SỐ KỊCH BẢN THÂM NHẬP GIẢ ĐỊNH}
+\end{minipage}\\[1.0cm]
+\end{spacing}
+
+% ==== Thêm thông tin trình bày ====
+\vspace{1.4cm} % Khoảng cách dưới tên đề tài
+
+{\fontsize{14pt}{14pt}\selectfont
+\begin{center}
+\vspace{-6pt} 
+\begin{tabular}{ l l }
+\textbf{Giảng viên hướng dẫn} & : Đại úy Nguyễn Trọng Hưng \\
+\textbf{Nhóm trình bày}  & : Nhóm 2 \\
+\textbf{Trung đội}            & : B14D52 \\
+\end{tabular}
+\end{center}
+}
+
+
+\begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=north] at ($ (current page.south west) + (3.5cm,3.5cm) + (7.8cm,0) $)
+        {\fontsize{14pt}{18pt}\selectfont Hà Nội, \ifnum\month<10 0\number\month\else\number\month\fi/\number\year};
+\end{tikzpicture}
+
+\end{center}
+\end{titlepaper}

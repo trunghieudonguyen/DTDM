@@ -1,0 +1,28 @@
+\begingroup
+
+  \renewcommand{\listfigurename}{DANH MỤC HÌNH ẢNH}
+
+  % --- Định dạng tiêu đề ---
+  \renewcommand{\cftloftitlefont}{\hfill\fontsize{14pt}{21pt}\selectfont\bfseries}
+  \renewcommand{\cftafterloftitle}{\hfill}
+
+  % --- Tiền tố "Hình" trước số hình ---
+  \renewcommand{\cftfigpresnum}{Hình~}
+  \renewcommand{\cftfigaftersnum}{:~}
+
+  % --- Khoảng cách tự động từ số hình đến nội dung ---
+  \cftsetindents{figure}{0pt}{4.5em}  
+  % 0pt = sát lề trái
+  % 2em = khoảng cách từ "Hình x:" đến nội dung, LaTeX tự dãn nếu số dài
+
+  % --- Định dạng dòng danh mục ---
+  \renewcommand{\cftfigfont}{\fontsize{14pt}{21pt}\selectfont}
+  \renewcommand{\cftfigpagefont}{\fontsize{14pt}{21pt}\selectfont}
+
+  % --- Khoảng cách giữa các dòng trong danh mục hình ảnh ---
+  \setlength{\cftbeforefigskip}{6pt}
+
+  % --- Giãn dòng 1.15 ---
+  \renewcommand{\baselinestretch}{1.15}\selectfont
+  \listoffigures
+\endgroup
