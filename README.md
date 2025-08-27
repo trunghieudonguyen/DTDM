@@ -61,7 +61,7 @@ Cài `latexmk` nếu chưa có (đa số bản MiKTeX đã bao gồm).
 Clone từ Git:
 ```bash
 git clone https://github.com/trunghieudonguyen/DTDM
-cd DNTH_DTDM
+cd DTDM
 ```
 
 ---
