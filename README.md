@@ -58,15 +58,9 @@ Cài `latexmk` nếu chưa có (đa số bản MiKTeX đã bao gồm).
 
 ## 2) Lấy mã nguồn dự án
 
-Nếu có file `.zip`:
+Clone từ Git:
 ```bash
-unzip DNTH_DTDM.zip -d ~/Projects/
-cd ~/Projects/DNTH_DTDM
-```
-
-Hoặc clone từ Git:
-```bash
-git clone <URL-REPO>
+git clone https://github.com/trunghieudonguyen/DTDM
 cd DNTH_DTDM
 ```
 
